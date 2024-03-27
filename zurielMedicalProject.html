@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+<script src="/assets/jquery.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Luxurious+Roman&display=swap" rel="stylesheet">
+<style>
+input {
+	font-size: 22px;
+}
+	
+body {
+  font-family: helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background: #500;
+}
+div {
+  height: 300px;
+  background-size: cover;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 12px;
+}
+h1 {
+  font-family: 'Luxurious Roman', serif;
+  text-align: center;
+  font-size: 75px;
+  color: #aaaaaa;
+  margin: 60px 0 0 0;
+  color: navy;
+}
+h2 {
+  text-align: center;
+  color: #bbbbbb;
+  margin: 0px 0 70px 0;
+  color: blue;
+  font-family: 'Merriweather', serif;
+}
+p {
+  font-family: 'Roboto Mono', monospace;
+  color: rgba(255, 0, 0);
+  background: black;
+  background: linear-gradient(bottom, rgba(100,0,0,0.5), rgba(100,0,0,0.4));
+  background: -webkit-linear-gradient(bottom, rgba(100,0,0,0.5), rgba(100,0,0,.4));
+  background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+}
+
+small {
+  opacity: 0;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+
+.first{
+  background-image: url("https://cmsny.org/wp-content/uploads/2020/08/rendered-copy.jpg");
+}
+.second{
+  background-image: url("https://db0ip7zd23b50.cloudfront.net/dims4/default/aea858a/2147483647/legacy_thumbnail/1920x740%3E/quality/90/?url=http%3A%2F%2Fbloomberg-bna-brightspot.s3.amazonaws.com%2F36%2F10%2F94359a514a66bb6df6be80c96fcf%2Fgettyimages-698689964.jpg");
+}
+.dessert{
+  background-image: url("https://www.rocketlawyer.com/binaries/content/gallery/guide-hero-images/US/how-much-do-lawyers-cost-1204622612.jpg");
+}
+.price {
+  float: right;
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+    
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+<h1>Hire  a Lawyer or Attorney  </h1>
+<h2>The best in the state </h2>
+<div class="first">
+<input type="number" min="0" style="width: 50px" class="quantities">
+  <p>Hire an attorney <span class="price">$2000</span><br />
+  <small>What is an attorney?
+  An attoerney is overall more qualified than a normal lawyer. A normal lawyer has not been through law school like an attorney. </small></p>
+</div>
+
+<div class="second">
+<input type="number" min="0" style="width: 50px" class="quantities">
+  <p>Find your court case date/hire a lawyer. <span class="price">$500</span><br />
+  <small>When is my trial?
+  Find out when your trial is by going to your nearst civil court or family court. You can ask the judge or further information. Although our lawyers arent as trained as Attorneys, we still have one of the best. Scroll down for further information </small></p>
+</div>
+  
+<div class="dessert">
+<input type="number" min="0" style="width: 50px" class="quantities">
+  <p>Investigation for court case<span class="price">$200</span><br />
+  <small>Get someone to go into more depth about your court case.</small></p>
+</div>
+
+<br> <br>
+<input id="Name" placeholder="User name">
+<input id="Email" placeholder="Search Google or Type Url ">
+<input id="submit" type="submit">
+<br> <br>
+
+<script>
+  	$('div').on('click', function() {
+      	$(this).toggleClass('show-description');
+  });
+</script>
+  
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+  import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBi-AhABoBLFYQ8fUdZdQsJfuiNsbjT6Aw",
+    authDomain: "project-3-medical.firebaseapp.com",
+    projectId: "project-3-medical",
+    storageBucket: "project-3-medical.appspot.com",
+    messagingSenderId: "134071163091",
+    appId: "1:134071163091:web:9fe5e78f3a9cd0a54a1c26"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+	const Name = document.querySelector("#Name") 
+		const Email = document.querySelector("#Email")
+  		const quantities = document.querySelectorAll(".quantities") 
+		const prices = document.querySelectorAll(".price") 
+		const itemsList = ["attorney", "courtCase", "investigation"]
+  		
+		document.querySelector('#submit').addEventListener('click', Submit)
+	
+		function Submit() {
+			
+		  const timestamp = buildTimestamp()
+
+	  	  
+		  let total = 0 
+
+		  let cart = { }
+		  
+	  	  for  (let i=0; i<quantities.length; i=i+1) {
+	  	  	if (quantities[i].value != "0" && quantities[i].value != "") {	
+			  let price = prices[i].innerHTML.replace('$', '')
+			  total = total + quantities[i].value * price 
+
+	  	  		cart[itemsList[i]] = parseInt(quantities[i].value) 
+	  	  	}
+	  	  	quantities[i].value = ""
+	  	  }
+
+
+	  
+		  set(ref(db, timestamp), {
+			  Name: Name.value,
+			  email: Email.value,
+			  cart: cart,
+		  totalPrice: total,
+		  paid: "not yet",
+
+		  });
+
+		  Name.value = ""
+		  Email.value = ""
+		}
+	
+		function buildTimestamp() {
+		const now = new Date();
+		  let timestamp = now.getFullYear().toString() + "/";
+		  //const month = now.toLocaleString('default', { month: 'long' });
+
+		  let month = now.getMonth()+1   //add 1 because Javascript uses 0 for January
+		  month = month.toString()
+	  	  month = addLeadingZero(month)
+	  	  timestamp += month + "/"; 
+
+	 	  let date = now.getDate().toString()
+	  	  date = addLeadingZero(date)
+		  timestamp += date + "/";
+
+		  let hours = now.getHours().toString()
+		  hours = addLeadingZero(hours)
+		  timestamp += hours + ":";
+
+		  let minutes = now.getMinutes().toString()
+		  minutes = addLeadingZero(minutes)
+		  timestamp += minutes + ":";
+
+		  let seconds = now.getSeconds().toString()
+		  seconds = addLeadingZero(seconds)
+		  timestamp += seconds;
+  
+		  return timestamp
+		}
+	
+		function addLeadingZero(units) {
+			if (units.length < 2) {
+				units = "0" + units
+			}
+			return units
+		}
+</script>
+
+</body>
